@@ -1,12 +1,12 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import { ethers } from "hardhat";
 
 
+const TokenModule = buildModule("MyToken", (m) => {
+  const initialSupply = ethers.parseEther('10000');
+  const token = m.contract("MyToken", [initialSupply]);
 
-const TokenModule = buildModule("ProposalContract", (m) => {
-
-  const proposal = m.contract("ProposalContract");
-
-  return { proposal };
+  return { token };
 });
 
 export default TokenModule;
